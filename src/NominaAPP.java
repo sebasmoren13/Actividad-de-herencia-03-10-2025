@@ -38,6 +38,7 @@ public class NominaAPP {
             op = menu.nextInt();
 
 
+
             switch (op) {
 
                 case 1:

@@ -3,7 +3,7 @@ public class Empleado {
 
     protected String id; //Identificador único del empleado (por ejemplo: "E001")
     protected String nombre; //Nombre completo del empleado.
-    protected Double salarioBase; //Salario mensual sin incluir comisiones ni bonos.
+    protected double salarioBase; //Salario mensual sin incluir comisiones ni bonos.
 
 
 
@@ -64,18 +64,19 @@ public class Empleado {
 
     //Metodos propios
 
-    /*calcularSalario()*/
 
-    //Info
-
-
-    public String info() {
-        return "ID: " + id + ", Nombre: " + nombre + ", Salario Base: " + salarioBase;
+    // Operaciones específicas
+    public double calcularSalario() {
+        return salarioBase;
     }
 
 
 
+    // Info
 
+    public String info() {
+        return "ID: " + id + ", Nombre: " + nombre + ", Salario Base: " + salarioBase;
+    }
 
 
 

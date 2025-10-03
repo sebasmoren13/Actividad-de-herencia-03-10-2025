@@ -47,7 +47,7 @@ public class Gerente extends Empleado{
 
     @Override
     public String toString() {
-        return "Gerente{" +
+        return super.toString()+"Gerente{" +
                 "bonoFijo=" + bonoFijo +
                 ", empleadoACargo=" + empleadoACargo +
                 '}';
@@ -56,23 +56,31 @@ public class Gerente extends Empleado{
 
     //Metodos propios
 
+    public double calcularIncentivoLiderazgo() {
+        if (empleadoACargo > 10) {
+            return 0.05 * salarioBase;
+        }
+        return 0;
+    }
 
-   /* calcularIncentivoLiderazgo()
-    o Devuelve un 5% del salario base si el gerente tiene más de 10
-    empleados a su cargo.
-    o Si no cumple la condición, retorna 0.*/
-
-
-
-           /* 4. calcularSalario() (sobrescrito)
-    o Calcula el salario total del gerente:
-    salarioTotal = salarioBase + bonoFijo + calcularIncentivoLiderazgo()*/
-
-
-/*5. info() (sobrescrito)
-            • Muestra la información completa del gerente.*/
+    public double calcularSalario() {
+        return salarioBase + bonoFijo + calcularIncentivoLiderazgo();
+    }
 
 
+
+
+    @Override
+
+
+
+    public String info() {
+        double incentivo = calcularIncentivoLiderazgo();
+        double salarioFinal = calcularSalario();
+        return  ", Bono Fijo: " + bonoFijo +
+                ", Empleados a Cargo: " + empleadoACargo +
+                ", Incentivo Liderazgo: " + incentivo + ", Salario Final: " + salarioFinal;
+    }
 
 
 

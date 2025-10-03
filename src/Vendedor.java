@@ -43,7 +43,7 @@ public class Vendedor extends Empleado{
 
     @Override
     public String toString() {
-        return "Vendedor{" +
+        return super.toString()+ "Vendedor{" +
                 "porcentajeComision=" + porcentajeComision +
                 ", ventasMensuales=" + ventasMensuales +
                 '}';
@@ -53,12 +53,37 @@ public class Vendedor extends Empleado{
 //Metodos propios
 
 
-/*calcularBonificacionPorMeta()*/
+public double calcularBonificacionPorMeta() {
+    if (ventasMensuales > 5000000) {
+        return 0.1 * ventasMensuales;
+    }
+    return 0;
+}
+
+    public double calcularSalario() {
+        return salarioBase + (ventasMensuales * porcentajeComision) + calcularBonificacionPorMeta();
+    }
 
 
-    /*calcularSalario() SOBREESCRITO*/
+    @Override
 
-    /* info()SOBREESCRITO*/
+    public String info() {
+        double comision = ventasMensuales * porcentajeComision;
+        double bono = calcularBonificacionPorMeta();
+        double salarioFinal = calcularSalario();
+        return ", Ventas Mensuales: " + ventasMensuales +
+                ", Comisión: " + comision + ", Bono: " + bono + ", Salario Final: " + salarioFinal;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
